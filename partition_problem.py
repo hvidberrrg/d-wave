@@ -14,15 +14,17 @@ def generate_partition_problem_bqm(s):
     vartype = dimod.BINARY
     return dimod.BinaryQuadraticModel(linear, quadratic, offset, vartype)
 
-def sample_dwave(s):
-    bqm = generate_partition_problem_bqm(s)
+def sample_dwave(bqm, sampleLabel):
     sampler = LeapHybridSampler()
-    sampleset = sampler.sample(bqm, label="Partition Problem (" + str(len(s)) + " numbers)")
+    sampleset = sampler.sample(bqm, label = sampleLabel)
     return sampleset.first.sample
 
-def partition_numbers(s, sample):
+def partition_numbers(s):
     s1 = list()
     s2 = list()
+    bqm = generate_partition_problem_bqm(s)
+    sampleLabel = "Partition Problem (" + str(len(s)) + " numbers)"
+    sample = sample_dwave(bqm, sampleLabel)
     for i in range(len(sample)):
         if sample[i] == 1:
             s1.append(s[i]) 
@@ -31,9 +33,14 @@ def partition_numbers(s, sample):
     
     return s1, s2
 
+def perfectness(s1, s2):
+    return abs(sum(s1) - sum(s2))
+
 #s = [4, 2, 7, 1]
+#s = [25, 7, 13, 31, 42, 17, 21, 10, 4, 3, 8, 1, 25, 7, 13, 31, 42, 17, 21, 10, 4, 3, 8, 1, 25, 7, 13, 31, 42, 17, 21, 10, 4, 3, 8, 1, 25, 7, 13, 31, 42, 17, 21, 10, 4, 3, 8, 1]
 s = [25, 7, 13, 31, 42, 17, 21, 10]
-sample = sample_dwave(s)
-s1, s2 = partition_numbers(s, sample)
+s1, s2 = partition_numbers(s)
+
 print(s1)
 print(s2)
+print("Perfectness: " + str(perfectness(s1, s2)))
