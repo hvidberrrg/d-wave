@@ -60,11 +60,13 @@ def partition_numbers(set_of_numbers: list[int]) -> tuple[list[int], list[int]]:
             A tuple containing to subsets of numbers (represented as lists) that represents a solution to the
             number partitioning problem for the supplied 'set_of_numbers'
     """
-    subset_of_numbers1: list[int] = list()
-    subset_of_numbers2: list[int] = list()
     bqm = generate_partition_problem_bqm(set_of_numbers)
     sample_label = "Partition Problem (" + str(len(set_of_numbers)) + " numbers)"
     partitioning_info = sample_dwave(bqm, sample_label)
+    assert (len(set_of_numbers) == len(partitioning_info)), "Something went wrong... the partitioning info doesn't match the set of input numbers."
+    
+    subset_of_numbers1: list[int] = list()
+    subset_of_numbers2: list[int] = list()
     for i in range(len(partitioning_info)):
         if partitioning_info[i] == 1:
             subset_of_numbers1.append(set_of_numbers[i]) 
