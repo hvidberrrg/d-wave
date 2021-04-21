@@ -1,4 +1,6 @@
 # d-wave
+**Static Analysis:** 
+[![Scanned on SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=hvidberrrg_d-wave&metric=alert_status)](https://sonarcloud.io/dashboard?id=hvidberrrg_d-wave)
 
 ## The number partitioning problem
 
