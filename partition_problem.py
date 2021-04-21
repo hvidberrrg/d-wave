@@ -92,8 +92,6 @@ def perfectness(subset_of_numbers1: list[int], subset_of_numbers2: list[int]) ->
 
 
 def main():
-    #s = [4, 2, 7, 1]
-    #s = [25, 7, 13, 31, 42, 17, 21, 10, 4, 3, 8, 1, 25, 7, 13, 31, 42, 17, 21, 10, 4, 3, 8, 1, 25, 7, 13, 31, 42, 17, 21, 10, 4, 3, 8, 1, 25, 7, 13, 31, 42, 17, 21, 10, 4, 3, 8, 1]
     set_of_numbers = [25, 7, 13, 31, 42, 17, 21, 10] # The set of numbers is represented as a list to maintain ordering
     subset_of_numbers1, subset_of_numbers2 = partition_numbers(set_of_numbers)
 
