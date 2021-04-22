@@ -7,13 +7,13 @@ def generate_partition_problem_bqm(set_of_numbers: list[int]) -> dimod.BinaryQua
     """Generates an instance of BinaryQuadraticModel with a QUBO formulation of the number partitioning
     problem for the set of numbers, given as argument.
 
-    The implementation is based on Fred Glover et al: "Quantum Bridge Analytics I: A Tutorial on Formulating 
+    The implementation is based on Fred Glover et al: "Quantum Bridge Analytics I: A Tutorial on Formulating
     and Using QUBO Models", arXiv:1811.11538
 
     Args:
         set_of_numbers (list[int]):
             A set of numbers, represented as a list to maintain ordering
-    
+
     Returns:
             An instance of BinaryQuadraticModel with a QUBO formulation of the number partitioning
             problem for 'set_of_numbers'.
@@ -25,7 +25,7 @@ def generate_partition_problem_bqm(set_of_numbers: list[int]) -> dimod.BinaryQua
         linear[i] = set_of_numbers[i]*(set_of_numbers[i] - sum_of_numbers)
         for j in range(1 + i, len(set_of_numbers)):
             quadratic[(i, j)] = 2*set_of_numbers[i]*set_of_numbers[j]
-    
+
     offset = 0.0
     vartype = dimod.BINARY
     return dimod.BinaryQuadraticModel(linear, quadratic, offset, vartype)
@@ -37,7 +37,7 @@ def partition_numbers(set_of_numbers: list[int]) -> tuple[list[int], list[int]]:
     Args:
         set_of_numbers (list[int]):
             A set of numbers, represented as a list to maintain ordering
-    
+
     Returns:
             A tuple containing to subsets of numbers (represented as lists) that represents a solution to the
             number partitioning problem for the supplied 'set_of_numbers'
@@ -46,15 +46,15 @@ def partition_numbers(set_of_numbers: list[int]) -> tuple[list[int], list[int]]:
     sample_label = "Partition Problem (" + str(len(set_of_numbers)) + " numbers)"
     partitioning_info = sampler.sample_dwave(bqm, sample_label)
     assert (len(set_of_numbers) == len(partitioning_info)), "Something went wrong... the partitioning info doesn't match the set of input numbers."
-    
+
     subset_of_numbers1: list[int] = list()
     subset_of_numbers2: list[int] = list()
     for i in range(len(partitioning_info)):
         if partitioning_info[i] == 1:
-            subset_of_numbers1.append(set_of_numbers[i]) 
+            subset_of_numbers1.append(set_of_numbers[i])
         else:
             subset_of_numbers2.append(set_of_numbers[i])
-    
+
     return subset_of_numbers1, subset_of_numbers2
 
 
@@ -66,7 +66,7 @@ def perfectness(subset_of_numbers1: list[int], subset_of_numbers2: list[int]) ->
             A set of numbers
         subset_of_numbers2 (list[int]):
             A set of numbers
-    
+
     Returns:
             The absolute value of the difference of the sums of the numbers in the two subsets
     """
@@ -74,7 +74,7 @@ def perfectness(subset_of_numbers1: list[int], subset_of_numbers2: list[int]) ->
 
 
 def main():
-    set_of_numbers = [25, 7, 13, 31, 42, 17, 21, 10] # The set of numbers is represented as a list to maintain ordering
+    set_of_numbers = [25, 7, 13, 31, 42, 17, 21, 10]  # The set of numbers is represented as a list to maintain ordering
     subset_of_numbers1, subset_of_numbers2 = partition_numbers(set_of_numbers)
 
     print(subset_of_numbers1)
