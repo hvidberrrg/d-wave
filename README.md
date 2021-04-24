@@ -27,3 +27,5 @@ and `s2 = [31, 42, 10]`, or `s1 = [7, 13, 42, 21]` and `s2 = [25, 31, 17, 10]`. 
 [arXiv:1811.11538](https://arxiv.org/abs/1811.11538)
 
 [2] Stephan Mertens, "The Easiest Hard Problem: Number Partitioning", [arXiv:cond-mat/0310317](https://arxiv.org/abs/cond-mat/0310317)
+
+[3] Abhijith et al., "Quantum Algorithm Implementations for Beginners", [arXiv:1804.03719](https://arxiv.org/abs/1804.03719)
