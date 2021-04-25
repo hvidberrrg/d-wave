@@ -19,7 +19,8 @@ addons:
 
 script:
  - coverage run -m unittest
+ - coverage xml -o .coverage.xml
 
 after_success:
-  - sonar-scanner -Dsonar.python.coverage.reportPath=.coverage -Dsonar.organization=hvidberrrg-github -Dsonar.projectKey=d-wave -Dsonar.login=${SONAR_TOKEN};
+  - sonar-scanner -Dsonar.python.coverage.reportPaths=.coverage.xml -Dsonar.organization=hvidberrrg-github -Dsonar.projectKey=d-wave -Dsonar.login=${SONAR_TOKEN};
  
