@@ -1,4 +1,5 @@
 # D-Wave experiments
+**Continuous Integration:** [![Build Status](https://api.travis-ci.com/hvidberrrg/d-wave.svg?branch=master)](https://travis-ci.com/github/hvidberrrg/d-wave) <br/>
 **Static Analysis:** 
 [![Scanned on SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=hvidberrrg_d-wave&metric=alert_status)](https://sonarcloud.io/dashboard?id=hvidberrrg_d-wave)
 
