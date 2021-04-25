@@ -39,7 +39,7 @@ def partition_numbers(set_of_numbers: list[int]) -> tuple[list[int], list[int]]:
             A set of numbers, represented as a list to maintain ordering
 
     Returns:
-            A tuple containing to subsets of numbers (represented as lists) that represents a solution to the
+            A tuple containing two subsets of numbers (represented as lists) that represents a solution to the
             number partitioning problem for the supplied 'set_of_numbers'
     """
     bqm = generate_partition_problem_bqm(set_of_numbers)
@@ -71,15 +71,3 @@ def perfectness(subset_of_numbers1: list[int], subset_of_numbers2: list[int]) ->
             The absolute value of the difference of the sums of the numbers in the two subsets
     """
     return abs(sum(subset_of_numbers1) - sum(subset_of_numbers2))
-
-
-def main():
-    set_of_numbers = [25, 7, 13, 31, 42, 17, 21, 10]  # The set of numbers is represented as a list to maintain ordering
-    subset_of_numbers1, subset_of_numbers2 = partition_numbers(set_of_numbers)
-
-    print(subset_of_numbers1)
-    print(subset_of_numbers2)
-    print("Perfectness: " + str(perfectness(subset_of_numbers1, subset_of_numbers2)))
-
-
-main()
