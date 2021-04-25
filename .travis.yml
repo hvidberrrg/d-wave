@@ -8,3 +8,14 @@ install:
  - pip install -r requirements.txt
 script:
  - coverage run -m unittest
+ 
+# Avoid Sonar "shallow clone" warnings (Shallow clone detected during the analysis. Some files will miss SCM information.
+# This will affect features like auto-assignment of issues. Please configure your build to disable shallow clone.)
+git:
+  depth: 99999
+
+addons:
+  sonarcloud:
+      organization: "hvidberrrg-github"
+      token: ${SONAR_TOKEN}
+
