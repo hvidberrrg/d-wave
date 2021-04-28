@@ -8,15 +8,15 @@ from mock import patch
 class MaximumCutTest(unittest.TestCase):
 
     def setUp(self):
-        self.G = nx.Graph()
-        self.G.add_edges_from([(0, 1), (0, 3), (1, 2), (1, 3), (4, 2), (4, 3)])
+        self.graph = nx.Graph()
+        self.graph.add_edges_from([(0, 1), (0, 3), (1, 2), (1, 3), (4, 2), (4, 3)])
         self.maximum_cut_info = {0: 0, 1: 1, 2: 0, 3: 0, 4: 1}
         
     def test_generate_maximum_cut_bqm(self):
         expected_linear_biases = {0: -2, 1: -3, 3: -3, 2: -2, 4: -2}
         expected_quadratic_biases = {(0, 1): 2, (0, 3): 2, (1, 3): 2, (1, 2): 2, (3, 4): 2, (2, 4): 2}
 
-        bqm = mc.generate_maximum_cut_bqm(self.G)
+        bqm = mc.generate_maximum_cut_bqm(self.graph)
         self.assertEqual(bqm.linear, expected_linear_biases, "The linear biases of the BQM are not as expected")
         self.assertEqual(bqm.quadratic, expected_quadratic_biases, "The quadratic biases of the BQM are not as expected")
 
@@ -28,7 +28,7 @@ class MaximumCutTest(unittest.TestCase):
             mock_lhs_instance = mock_lhs.return_value
             mock_lhs_instance.sample.return_value = mock_sampleset
 
-            nodes_set1, nodes_set2, cut_edges, uncut_edges = mc.maximum_cut(self.G)
+            nodes_set1, nodes_set2, cut_edges, uncut_edges = mc.maximum_cut(self.graph)
             self.assertEqual(len(nodes_set1), 2, "Node set 1 is the wrong size")
             self.assertTrue(1 in nodes_set1, "Node 1 should be in set0")
             self.assertTrue(4 in nodes_set1, "Node 4 should be in set0")
