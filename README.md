@@ -33,11 +33,11 @@ Exactly the same cut can also be illustrated as follows.
 
 The problem can be modelled by introducing binary variables satisfying <i>x<sub>i</sub> = 1</i> if vertex <i>i</i> is in subset <i>S</i>, and <i>x<sub>i</sub> = 0</i> if <i>i &isin; S<sup>c</sup></i>. An edge is "severed" by the cut if one of its endpoints is in subset <i>S</i> while the other is in <i>S<sup>c</sup></i>. This implies that the quantity <i>(x<sub>i</sub> + x<sub>j</sub> - 2x<sub>i</sub>x<sub>j</sub>)</i> can be used to decide if an edge <i>(i, j)</i> is part of the cut or not. If the edge <i>(i, j)</i> is part of the cut then exactly one of <i>x<sub>i</sub></i> and <i>x<sub>j</sub></i> equals <i>1</i> while the other is <i>0</i> - in this case <i>(x<sub>i</sub> + x<sub>j</sub> - 2x<sub>i</sub>x<sub>j</sub>)</i> is equal to <i>1</i>. If <i>(i, j)</i> is not part of the cut, then both <i>x<sub>i</sub></i> and <i>x<sub>j</sub></i> have the value <i>1</i> or both are <i>0</i> - in both cases <i>(x<sub>i</sub> + x<sub>j</sub> - 2x<sub>i</sub>x<sub>j</sub>)</i> is equal to <i>0</i>.
 
-Thus the problem of maximizing the number of edges in the cut can be formulated as (the sum is over all edges in the graph):
+Thus the problem of maximizing the number of edges in the cut can be formulated as:
 
-<i>maximize(&Sigma; x<sub>i</sub> + x<sub>j</sub> - 2x<sub>i</sub>x<sub>j</sub>, (i, j)&in; E)</i>
+<i>maximize(&Sigma; x<sub>i</sub> + x<sub>j</sub> - 2x<sub>i</sub>x<sub>j</sub>, (i, j)&in; E)</i> (the sum is over all edges in the graph)
 
-Since the D-Wave system is a "minimizing creature" we need to reformulate the expression as a minimization problem. This is done by multiplying the expression by -1; i.e. we need to solve the following to find the maximum cut:
+Since the D-Wave system is a "minimizing sort of creature" we need to reformulate the expression as a minimization problem. This is done by multiplying the expression by -1; i.e. we need to solve the following to find the maximum cut:
 
 <i>minimize(&Sigma; -x<sub>i</sub> - x<sub>j</sub> + 2x<sub>i</sub>x<sub>j</sub>, (i, j)&in; E)</i>
 
