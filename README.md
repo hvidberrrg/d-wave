@@ -17,11 +17,19 @@ The difference in the sums is then <i>diff = &Sigma;s<sub>i</sub> - 2&Sigma;s<su
 The difference is minimized by minimizing:
 <i>diff<sup>2</sup> = (c - 2&Sigma;s<sub>i</sub>x<sub>i</sub>)<sup>2</sup>, 1&le;i&le;n = x<sup>T</sup>Qx</i>
 
-Where <i>x</i> is the (<i>n</i>-)vector deciding whether a given number belongs to set 1 or set 2, and <i>Q</i> is a symmetric <i>n X n</i> matrix where <i>q<sub>ii</sub> = s<sub>i</sub>(s<sub>i</sub> - c)</i> and <i>q<sub>ij</sub> = s<sub>i</sub>s<sub>j</sub> = s<sub>j</sub>s<sub>i</sub></i> (to convince myself I scribbled down the [math](images/math/number_partitioning_problem.jpg) - note that <i>x = x<sup>2</sup></i> as <i>x</i> either has the value <i>0</i> or <i>1</i>).
+Where <i>x</i> is the (<i>n</i>-)vector deciding whether a given number belongs to set 1 or set 2, and <i>Q</i> is a symmetric <i>n X n</i> matrix where <i>q<sub>ii</sub> = s<sub>i</sub>(s<sub>i</sub> - c)</i> and <i>q<sub>ij</sub> = s<sub>i</sub>s<sub>j</sub> = s<sub>j</sub>s<sub>i</sub></i> (to convince myself I scribbled down the [math](readme/math/number_partitioning_problem.jpg) - note that <i>x = x<sup>2</sup></i> as <i>x</i> either has the value <i>0</i> or <i>1</i>).
 
-If you run the implementation given in `partition_problem.py` you should see the example set `s = [25, 7, 13, 31, 42, 17, 21, 10]` partitioned into either `s1 = [25, 7, 13, 17, 21]`
+If you run the implementation given in `example_partition_problem.py` you should see the example set `s = [25, 7, 13, 31, 42, 17, 21, 10]` partitioned into either `s1 = [25, 7, 13, 17, 21]`
 and `s2 = [31, 42, 10]`, or `s1 = [7, 13, 42, 21]` and `s2 = [25, 31, 17, 10]`. Both are perfect partitions.
 
+## The maximum cut problem
+The maximum cut problem for a graph <i>G=(V, E)</i>, is defined as the problem of separating (cutting) the set of vertices <i>V</i> into two complementary subsets, <i>S &sub; V</i> and <i>S<sup>c</sup> &sub; V</i> (where <i>S &cup; S<sup>c</sup> = V</i>), such that the number of (cut) edges between <i>S</i> and <i>S<sup>c</sup></i> is as large as possible.
+
+Below a maximum cut is illustrated for a simple graph of 5 vertices (nodes) and 6 edges. The illustation is taken from [3] and the nodes "color coded" for clarity.
+![Maxcut illustration 1](readme/maxcut.png "Maxcut illustration 1")
+
+Exactly the same cut can also be illustrated as follows.
+![Maxcut illustration 2](readme/maxcut2.png "Maxcut illustration 2")
 ## References
 
 [1] Fred Glover, Gary Kochenberger, Yu Du, "Quantum Bridge Analytics I: A Tutorial on Formulating and Using QUBO Models",
