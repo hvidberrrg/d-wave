@@ -42,10 +42,15 @@ Since the D-Wave system is a "minimizing sort of creature" we need to reformulat
 <i>minimize(&Sigma; -x<sub>i</sub> - x<sub>j</sub> + 2x<sub>i</sub>x<sub>j</sub>, (i, j)&in; E)</i>
 
 ## References
+(in no particular order - just added on the go)
 
-[1] Fred Glover, Gary Kochenberger, Yu Du, "Quantum Bridge Analytics I: A Tutorial on Formulating and Using QUBO Models",
+[1] Fred Glover, Gary Kochenberger, Yu Du (2019), "Quantum Bridge Analytics I: A Tutorial on Formulating and Using QUBO Models",
 [arXiv:1811.11538](https://arxiv.org/abs/1811.11538)
 
-[2] Stephan Mertens, "The Easiest Hard Problem: Number Partitioning", [arXiv:cond-mat/0310317](https://arxiv.org/abs/cond-mat/0310317)
+[2] Stephan Mertens (2003), "The Easiest Hard Problem: Number Partitioning", [arXiv:cond-mat/0310317](https://arxiv.org/abs/cond-mat/0310317)
 
-[3] Abhijith et al., "Quantum Algorithm Implementations for Beginners", [arXiv:1804.03719](https://arxiv.org/abs/1804.03719)
+[3] Abhijith et al. (2020), "Quantum Algorithm Implementations for Beginners", [arXiv:1804.03719](https://arxiv.org/abs/1804.03719)
+
+[4]  Karp, R. M. (1972), "Reducibility among combinatorial problems", in Miller, R. E.; Thatcher, J. W. (eds.), Complexity of Computer Computations, New York: Plenum Press, pp. 85–103.
+
+[5] Hohmann, C., Kern, W. (1990), "Optimization and optimality test for the Max-Cut Problem.", [ZOR - Methods and Models of Operations Research 34, 195–206](https://research.utwente.nl/en/publications/optimization-and-optimality-test-for-the-max-cut-problem)
