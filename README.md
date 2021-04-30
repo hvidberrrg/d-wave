@@ -25,6 +25,8 @@ and `s2 = [31, 42, 10]`, or `s1 = [7, 13, 42, 21]` and `s2 = [25, 31, 17, 10]`. 
 ## The maximum cut problem
 The maximum cut for an unweighted undirected graph <i>G=(V, E)</i>, is defined as the problem of partitioning (cutting) the set of vertices <i>V</i> into two complementary subsets, <i>S</i> and <i>S<sup>c</sup></i>, such that the number of (cut) edges between <i>S</i> and <i>S<sup>c</sup></i> is as large as possible.
 
+The maximum cut problem is known to be NP-complete. The weighted version of the problem constitutes the 21st of Karp's NP-complete problems [4]. And Hohmann and Kern showed in [5] that, given a graph and a cut, deciding whether or not the given cut is maximal is as hard as solving the maximum cut problem - so there's no feasible way of verifying our results.
+
 Below a maximum cut is illustrated for a simple graph of 5 vertices (nodes) and 6 edges. The illustation is taken from [3] and the nodes have been "color coded" for clarity.
 ![Maxcut illustration 1](readme/maxcut.png "Maxcut illustration 1")
 
