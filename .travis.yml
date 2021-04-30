@@ -22,5 +22,5 @@ script:
  - coverage xml -o .coverage.xml
 
 after_success:
-  - sonar-scanner -Dsonar.python.coverage.reportPaths=.coverage.xml -Dsonar.inclusions=**/* -Dsonar.organization=hvidberrrg-github -Dsonar.projectKey=hvidberrrg_d-wave -Dsonar.login=${SONAR_TOKEN};
+  - sonar-scanner -Dsonar.python.coverage.reportPaths=.coverage.xml -Dsonar.coverage.exclusions=**/example_*.py  -Dsonar.scm.exclusions.disabled=true -Dsonar.organization=hvidberrrg-github -Dsonar.projectKey=hvidberrrg_d-wave -Dsonar.login=${SONAR_TOKEN};
  
