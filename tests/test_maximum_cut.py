@@ -1,7 +1,7 @@
 import unittest
 import dimod
 import networkx as nx
-import maximum_cut as mc
+import qubo.maximum_cut as mc
 from mock import patch
 
 
@@ -22,7 +22,7 @@ class MaximumCutTest(unittest.TestCase):
 
     def test_maximum_cut(self):    
         # Patch LeapHybridSampler in the scope of the module it is imported into (i.e. sampler.py)
-        with patch('sampler.LeapHybridSampler') as mock_lhs:  
+        with patch('qubo.sampler.LeapHybridSampler') as mock_lhs:  
             # Build a mock sample set - https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/generated/dimod.SampleSet.from_samples.html    
             mock_sampleset = dimod.SampleSet.from_samples([self.maximum_cut_info], dimod.BINARY, [1])
             mock_lhs_instance = mock_lhs.return_value

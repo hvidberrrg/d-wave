@@ -1,4 +1,4 @@
-import partition_problem as pp
+import qubo.partition_problem as pp
 import random
 
 seed_numbers = [2, 8, 3 , 7, 9, 5, 4, 10]

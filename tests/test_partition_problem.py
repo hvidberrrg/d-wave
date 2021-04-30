@@ -1,6 +1,6 @@
 import unittest
 import dimod
-import partition_problem as pp
+import qubo.partition_problem as pp
 from mock import patch
 
 
@@ -27,7 +27,7 @@ class PartitionProblemTest(unittest.TestCase):
 
     def test_partition_numbers(self):    
         # Patch LeapHybridSampler in the scope of the module it is imported into (i.e. sampler.py)
-        with patch('sampler.LeapHybridSampler') as mock_lhs:  
+        with patch('qubo.sampler.LeapHybridSampler') as mock_lhs:  
             # Build a mock sample set - https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/generated/dimod.SampleSet.from_samples.html    
             mock_sampleset = dimod.SampleSet.from_samples([self.partitioning_info], dimod.BINARY, [1])
             mock_lhs_instance = mock_lhs.return_value

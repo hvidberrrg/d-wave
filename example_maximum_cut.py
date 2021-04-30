@@ -1,5 +1,5 @@
 import networkx as nx
-import maximum_cut as mc
+import qubo.maximum_cut as mc
 
 graph = nx.Graph()
 graph.add_edges_from([(0, 1), (0, 3), (1, 3), (1, 2), (3, 4), (2, 4)])

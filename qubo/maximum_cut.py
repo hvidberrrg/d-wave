@@ -2,7 +2,7 @@ from __future__ import annotations
 from collections import defaultdict
 import dimod
 import networkx as nx
-import sampler
+import qubo.sampler as sampler
 
 
 def generate_maximum_cut_bqm(graph: nx.Graph) -> dimod.BinaryQuadraticModel:

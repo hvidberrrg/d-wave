@@ -1,6 +1,6 @@
 from __future__ import annotations
 import dimod
-import sampler
+import qubo.sampler as sampler
 
 
 def generate_partition_problem_bqm(set_of_numbers: list[int]) -> dimod.BinaryQuadraticModel:
