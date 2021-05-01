@@ -49,6 +49,8 @@ This is an instance of:
 
 Where <i>x</i> is the (<i>n</i>-)vector deciding whether a given node belongs to <i>S</i> or <i>S<sup>c</sup></i>, and <i>Q</i> is a symmetric <i>n X n</i> matrix where <i>q<sub>ii</sub> = -(|(&bull;, i) &in; E| + |(i, &bull;) &in; E|)</i> (i.e. the total number of edges having an endpoint in node <i>i</i>, negated) and <i>q<sub>ij</sub> = q<sub>ji</sub> = 1</i>.
 
+An example of the QUBO formulation of the maximum cut for a graph can be found [here](readme/math/maximum_cut.jpg).
+
 ## References
 (in no particular order - just added on the go)
 
