@@ -17,7 +17,7 @@ The difference in the sums is then <i>diff = &Sigma;s<sub>i</sub> - 2&Sigma;s<su
 The difference is minimized by minimizing:
 <i>diff<sup>2</sup> = (c - 2&Sigma;s<sub>i</sub>x<sub>i</sub>)<sup>2</sup>, 1&le;i&le;n = x<sup>T</sup>Qx</i>
 
-Where <i>x</i> is the (<i>n</i>-)vector deciding whether a given number belongs to set 1 or set 2, and <i>Q</i> is a symmetric <i>n X n</i> matrix where <i>q<sub>ii</sub> = s<sub>i</sub>(s<sub>i</sub> - c)</i> and <i>q<sub>ij</sub> = s<sub>i</sub>s<sub>j</sub> = s<sub>j</sub>s<sub>i</sub></i> (to convince myself I scribbled down the [math](readme/math/number_partitioning_problem.jpg) - note that <i>x = x<sup>2</sup></i> as <i>x</i> either has the value <i>0</i> or <i>1</i>).
+Where <i>x</i> is the (<i>n</i>-)vector deciding whether a given number belongs to set 1 or set 2, and <i>Q</i> is a symmetric <i>n X n</i> matrix where <i>q<sub>ii</sub> = s<sub>i</sub>(s<sub>i</sub> - c)</i> and <i>q<sub>ij</sub> = q<sub>ji</sub> = s<sub>i</sub>s<sub>j</sub></i> (to convince myself I scribbled down the [math](readme/math/number_partitioning_problem.jpg) - note that <i>x = x<sup>2</sup></i> as <i>x</i> either has the value <i>0</i> or <i>1</i>).
 
 If you run the implementation given in `example_partition_problem.py` you should see the example set `s = [25, 7, 13, 31, 42, 17, 21, 10]` partitioned into either `s1 = [25, 7, 13, 17, 21]`
 and `s2 = [31, 42, 10]`, or `s1 = [7, 13, 42, 21]` and `s2 = [25, 31, 17, 10]`. Both are perfect partitions.
@@ -42,6 +42,12 @@ Thus the problem of maximizing the number of edges in the cut can be formulated 
 Since the D-Wave system is a "minimizing sort of creature" we need to reformulate the expression as a minimization problem. This is done by multiplying the expression by -1; i.e. we need to solve the following to find the maximum cut:
 
 <i>minimize(&Sigma; -x<sub>i</sub> - x<sub>j</sub> + 2x<sub>i</sub>x<sub>j</sub>, (i, j)&in; E)</i>
+
+This is an instance of:
+
+<i>minimize(x<sup>T</sup>Qx</i>)</i>
+
+Where <i>x</i> is the (<i>n</i>-)vector deciding whether a given node belongs to <i>S</i> or <i>S<sup>c</sup></i>, and <i>Q</i> is a symmetric <i>n X n</i> matrix where <i>q<sub>ii</sub> = -(|(&bull;, i) &in; E| + |(i, &bull;) &in; E|)</i> (i.e. the total number of edges having an endpoint in node <i>i</i>, negated) and <i>q<sub>ij</sub> = q<sub>ji</sub> = 1</i>.
 
 ## References
 (in no particular order - just added on the go)
