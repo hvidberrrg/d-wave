@@ -11,7 +11,7 @@ class MaximumCutTest(unittest.TestCase):
         self.graph = nx.Graph()
         self.graph.add_edges_from([(0, 1), (0, 3), (1, 2), (1, 3), (4, 2), (4, 3)])
         self.maximum_cut_info = {0: 0, 1: 1, 2: 0, 3: 0, 4: 1}
-        
+
     def test_generate_maximum_cut_bqm(self):
         expected_linear_biases = {0: -2, 1: -3, 3: -3, 2: -2, 4: -2}
         expected_quadratic_biases = {(0, 1): 2, (0, 3): 2, (1, 3): 2, (1, 2): 2, (3, 4): 2, (2, 4): 2}
@@ -20,10 +20,10 @@ class MaximumCutTest(unittest.TestCase):
         self.assertEqual(bqm.linear, expected_linear_biases, "The linear biases of the BQM are not as expected")
         self.assertEqual(bqm.quadratic, expected_quadratic_biases, "The quadratic biases of the BQM are not as expected")
 
-    def test_maximum_cut(self):    
+    def test_maximum_cut(self):
         # Patch LeapHybridSampler in the scope of the module it is imported into (i.e. sampler.py)
-        with patch('qubo.sampler.LeapHybridSampler') as mock_lhs:  
-            # Build a mock sample set - https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/generated/dimod.SampleSet.from_samples.html    
+        with patch('qubo.sampler.LeapHybridSampler') as mock_lhs:
+            # Build a mock sample set - https://docs.ocean.dwavesys.com/en/stable/docs_dimod/reference/generated/dimod.SampleSet.from_samples.html
             mock_sampleset = dimod.SampleSet.from_samples([self.maximum_cut_info], dimod.BINARY, [1])
             mock_lhs_instance = mock_lhs.return_value
             mock_lhs_instance.sample.return_value = mock_sampleset

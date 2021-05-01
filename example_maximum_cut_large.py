@@ -14,10 +14,10 @@ for i in range(n):
         graph.add_edges_from(seed_graph.edges)
     else:
         for (u, v) in seed_graph.edges:
-            graph.add_edge(u + i*10, v + i*10)
+            graph.add_edge(u + i * 10, v + i * 10)
         # Connect with the previous graph (new edges should be part of the cut)
-        graph.add_edge(3 + (i - 1)*10, 1 + i*10)
-        graph.add_edge(4 + (i - 1)*10, 0 + i*10)
+        graph.add_edge(3 + (i - 1) * 10, 1 + i * 10)
+        graph.add_edge(4 + (i - 1) * 10, 0 + i * 10)
 
 nodes_set1, nodes_set2, cut_edges, uncut_edges = mc.maximum_cut(graph)
 

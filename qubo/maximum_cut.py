@@ -50,7 +50,7 @@ def maximum_cut(graph: nx.Graph) -> tuple[set[int], set[int], set[tuple[int, int
     sample_label = "Maximum cut (" + str(graph.number_of_nodes()) + " nodes, " + str(graph.number_of_edges()) + " edges)"
     maximum_cut_info = sampler.sample_dwave(bqm, sample_label)
     assert (graph.number_of_nodes() == len(maximum_cut_info)), "Something went wrong... the maximum cut info doesn't match the input graph."
-    
+
     nodes_set1: set[int] = set()
     nodes_set2: set[int] = set()
     for node in graph.nodes:

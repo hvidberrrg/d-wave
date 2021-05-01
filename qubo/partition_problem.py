@@ -22,9 +22,9 @@ def generate_partition_problem_bqm(set_of_numbers: list[int]) -> dimod.BinaryQua
     quadratic: dict[tuple[int, int], int] = dict()
     sum_of_numbers = sum(set_of_numbers)
     for i in range(len(set_of_numbers)):
-        linear[i] = set_of_numbers[i]*(set_of_numbers[i] - sum_of_numbers)
+        linear[i] = set_of_numbers[i] * (set_of_numbers[i] - sum_of_numbers)
         for j in range(1 + i, len(set_of_numbers)):
-            quadratic[(i, j)] = 2*set_of_numbers[i]*set_of_numbers[j]
+            quadratic[(i, j)] = 2 * set_of_numbers[i] * set_of_numbers[j]
 
     offset = 0.0
     vartype = dimod.BINARY
