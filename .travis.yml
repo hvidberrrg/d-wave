@@ -23,4 +23,4 @@ script:
 
 after_success:
   - sonar-scanner -X -Dsonar.verbose=true -Dsonar.python.coverage.reportPaths=.coverage.xml -Dsonar.coverage.exclusions=**/example_*.py -Dsonar.sources=./ -Dsonar.organization=hvidberrrg-github -Dsonar.projectKey=hvidberrrg_d-wave -Dsonar.login=${SONAR_TOKEN} -Dsonar.javascript.exclusions="" -Dsonar.typescript.exclusions=""
-
+  - bash <(curl -s https://codecov.io/bash)
