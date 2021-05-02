@@ -1,7 +1,9 @@
 # D-Wave experiments
 **Continuous Integration:** [![Build Status](https://api.travis-ci.com/hvidberrrg/d-wave.svg?branch=master)](https://travis-ci.com/github/hvidberrrg/d-wave) <br/>
-**Static Analysis:** 
+**Static Analysis & coverage:** 
 [![Scanned on SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=hvidberrrg_d-wave&metric=alert_status)](https://sonarcloud.io/dashboard?id=hvidberrrg_d-wave)
+[![codecov](https://codecov.io/gh/hvidberrrg/d-wave/branch/master/graph/badge.svg?token=QLHCQJJ703)](https://codecov.io/gh/hvidberrrg/d-wave)
+
 
 This repository implements some of the examples given in "Quantum Bridge Analytics I: A Tutorial on Formulating and Using QUBO Models" by Glover et al. [1]. It should be noted that [1] operates with symmetric QUBO matrices while the D-Wave [binary quadratic model](https://docs.ocean.dwavesys.com/en/stable/concepts/bqm.html) represents the QUBO variables as an upper-diagonal/upper-triangular matrix. A symmetric matrix <i>Q</i> is easily transformed to upper-diagonal form by replacing  <i>q<sub>ij</sub></i> with <i>q<sub>ij</sub> + q<sub>ji</sub></i>, for all <i>i</i> and <i>j</i> with <i>j > i</i>. All <i>q<sub>ij</sub></i> with <i>j < i</i> are replaced by <i>0</i>. So we are just doubling all values above the main diagonal (as the matrix is symmetric) and setting all values below the main diagonal to <i>0</i> 
 
