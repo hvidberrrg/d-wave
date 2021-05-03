@@ -25,8 +25,8 @@ addons:
       name: "hvidberrrg/d-wave"
       description: "Experiments with D-Wave quantum annealing"
     notification_email: hvidberrrg@users.noreply.github.com
-    build_command_prepend: "cov-configure --python"
-    build_command: "--fs-capture-search"
+    build_command_prepend: ""
+    build_command: "--no-command --fs-capture-search"
     branch_pattern: coverity_scan
 
 script:
