@@ -3,6 +3,7 @@
 **Static Analysis & coverage:** 
 [![Scanned on SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=hvidberrrg_d-wave&metric=alert_status)](https://sonarcloud.io/dashboard?id=hvidberrrg_d-wave)
 [![codecov](https://codecov.io/gh/hvidberrrg/d-wave/branch/master/graph/badge.svg?token=QLHCQJJ703)](https://codecov.io/gh/hvidberrrg/d-wave)
+[![Coverity Scan Build Status](https://scan.coverity.com/projects/23004/badge.svg)](https://scan.coverity.com/projects/hvidberrrg-d-wave)
 
 
 This repository implements some of the examples given in "Quantum Bridge Analytics I: A Tutorial on Formulating and Using QUBO Models" by Glover et al. [1]. It should be noted that [1] operates with symmetric QUBO matrices while the D-Wave [binary quadratic model](https://docs.ocean.dwavesys.com/en/stable/concepts/bqm.html) represents the QUBO variables as an upper-diagonal/upper-triangular matrix. A symmetric matrix <i>Q</i> is easily transformed to upper-diagonal form by replacing  <i>q<sub>ij</sub></i> with <i>q<sub>ij</sub> + q<sub>ji</sub></i>, for all <i>i</i> and <i>j</i> with <i>j > i</i>. All <i>q<sub>ij</sub></i> with <i>j < i</i> are replaced by <i>0</i>. So we are just doubling all values above the main diagonal (as the matrix is symmetric) and setting all values below the main diagonal to <i>0</i> 
@@ -27,7 +28,7 @@ and `s2 = [31, 42, 10]`, or `s1 = [7, 13, 42, 21]` and `s2 = [25, 31, 17, 10]`. 
 ## The maximum cut problem
 The maximum cut for an unweighted undirected graph <i>G=(V, E)</i>, is defined as the problem of partitioning (cutting) the set of vertices <i>V</i> into two complementary subsets, <i>S</i> and <i>S<sup>c</sup></i>, such that the number of (cut) edges between <i>S</i> and <i>S<sup>c</sup></i> is as large as possible.
 
-The maximum cut problem is known to be NP-complete. The weighted version of the problem constitutes the 21st of Karp's NP-complete problems [4]. And Hohmann and Kern showed in [5] that, given a graph and a cut, deciding whether or not the given cut is maximal is as hard as solving the maximum cut problem - so there's no feasible way of verifying our results.
+The maximum cut decision problem is known to be NP-complete. The weighted version of the decision problem constitutes the 21st of Karp's NP-complete problems [4]. And Hohmann and Kern showed in [5] that, given a graph and a cut, deciding whether or not the given cut is maximal is as hard as solving the maximum cut problem - so there's no feasible way of verifying our results.
 
 Below a maximum cut is illustrated for a simple graph of 5 vertices (nodes) and 6 edges. The illustation is taken from [3] and the nodes have been "color coded" for clarity.
 ![Maxcut illustration 1](readme/maxcut.png "Maxcut illustration 1")
@@ -52,6 +53,10 @@ This is an instance of:
 Where <i>x</i> is the (<i>n</i>-)vector deciding whether a given node belongs to <i>S</i> or <i>S<sup>c</sup></i>, and <i>Q</i> is a symmetric <i>n X n</i> matrix where <i>q<sub>ii</sub> = -(|(&bull;, i) &in; E| + |(i, &bull;) &in; E|)</i> (i.e. the total number of edges having an endpoint in node <i>i</i>, negated) and <i>q<sub>ij</sub> = q<sub>ji</sub> = 1</i>.
 
 An example of the QUBO formulation of the maximum cut for a graph can be found [here](readme/math/maximum_cut.jpg).
+
+## The minimum vertex cover problem
+
+Given an undirected graph, <i>G=(V, E)</i>, a vertex cover is a subset of the vertices (nodes), <i>V</i>, such that each edge in <i>E</i> is incident to at least one vertex in the subset, i.e. each edge has at least one of its endpoints in the vertex cover. The minimum vertex cover problem seeks to find a cover with a minimum number of vertices in the subset. 
 
 ## References
 (in no particular order - just added on the go)
