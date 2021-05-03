@@ -26,7 +26,7 @@ addons:
       description: "Experiments with D-Wave quantum annealing"
     notification_email: hvidberrrg@users.noreply.github.com
     build_command_prepend: ""
-    build_command: "--no-command --fs-capture-search"
+    build_command: "--no-command --fs-capture-search ."
     branch_pattern: coverity_scan
 
 script:
