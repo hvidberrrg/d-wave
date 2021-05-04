@@ -9,6 +9,7 @@ dwave-qbsolv==0.3.2
 dwave-system==1.4.0
 dwave-tabu==0.3.1
 dwavebinarycsp==0.1.2
+matplotlib==3.4.1
 minorminer==0.2.5
 penaltymodel-cache==0.4.3
 penaltymodel-lp==0.1.4
