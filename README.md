@@ -56,7 +56,9 @@ An example of the QUBO formulation of the maximum cut for a graph can be found [
 
 ## The minimum vertex cover problem
 
-Given an undirected graph, <i>G=(V, E)</i>, a vertex cover is a subset of the vertices (nodes), <i>V</i>, such that each edge in <i>E</i> is incident to at least one vertex in the subset, i.e. each edge has at least one of its endpoints in the vertex cover. The minimum vertex cover problem seeks to find a cover with a minimum number of vertices in the subset. 
+Given an undirected graph, <i>G=(V, E)</i>, a vertex cover is a subset of the vertices (nodes), <i>V</i>, such that each edge in <i>E</i> is incident to at least one vertex in the subset, i.e. each edge has at least one of its endpoints in the vertex cover. The minimum vertex cover problem seeks to find a cover with a minimum number of vertices in the subset.
+
+For the graph above - illustrating the maximum cut problem - examples of a minimum vertex cover include <i>(1, 2, 3)</i> and <i>(0, 1, 4)</i>.
 
 ## References
 (in no particular order - just added on the go)
