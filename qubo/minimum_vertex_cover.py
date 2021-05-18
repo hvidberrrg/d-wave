@@ -28,7 +28,7 @@ def generate_minimum_vertex_cover_bqm(graph: nx.Graph) -> dimod.BinaryQuadraticM
         linear[i] += -penalty
         linear[j] += -penalty
         quadratic[(i, j)] = penalty
-    for i in range(graph.number_of_nodes()):
+    for i in graph.nodes:
         linear[i] += 1
 
     offset = 0.0
