@@ -1,7 +1,7 @@
-import matplotlib
-matplotlib.use("agg")
 from matplotlib import pyplot as plt
 import networkx as nx
+import matplotlib
+matplotlib.use("agg")
 
 
 def maximum_cut(graph, nodes_set1, nodes_set2, cut_edges, uncut_edges, filename):
@@ -13,6 +13,7 @@ def maximum_cut(graph, nodes_set1, nodes_set2, cut_edges, uncut_edges, filename)
     nx.draw_networkx_labels(graph, pos)
 
     plt.savefig(filename, bbox_inches='tight')
+
 
 def minimum_vertex_cover(graph, minimum_vertex_cover, filename):
     pos = nx.spring_layout(graph)

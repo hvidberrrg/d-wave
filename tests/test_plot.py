@@ -23,7 +23,7 @@ class PlotTest(unittest.TestCase):
         plot.maximum_cut(graph, nodes_set1, nodes_set2, cut_edges, uncut_edges, filename)
         self.assertIsFile(filename)
         os.remove(filename)
-    
+
     def test_minimum_vertex_cover(self):
         graph = nx.Graph()
         graph.add_edges_from([(0, 1), (0, 3), (1, 3), (1, 2), (3, 4), (2, 4)])
