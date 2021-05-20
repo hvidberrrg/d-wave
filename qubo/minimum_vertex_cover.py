@@ -1,8 +1,8 @@
 from __future__ import annotations
-from collections import defaultdict
 import dimod
 import math
 import networkx as nx
+import numpy as np
 import qubo.sampler as sampler
 
 
@@ -21,13 +21,13 @@ def generate_minimum_vertex_cover_bqm(graph: nx.Graph) -> dimod.BinaryQuadraticM
             An instance of BinaryQuadraticModel with a QUBO formulation of the
             minimum vertex cover problem for 'graph'.
     """
-    linear: dict[int, int] = defaultdict(int)
-    quadratic: dict[tuple[int, int], int] = defaultdict(int)
+    linear = np.zeros(shape=graph.number_of_nodes())
+    quadratic = np.zeros(shape=(graph.number_of_nodes(), graph.number_of_nodes()))
     penalty = math.ceil(1.5 * graph.number_of_nodes())
     for (i, j) in graph.edges:
         linear[i] += -penalty
         linear[j] += -penalty
-        quadratic[(i, j)] = penalty
+        quadratic[i, j] = penalty
     for i in graph.nodes:
         linear[i] += 1
 

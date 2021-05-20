@@ -1,7 +1,7 @@
 from __future__ import annotations
-from collections import defaultdict
 import dimod
 import networkx as nx
+import numpy as np
 import qubo.sampler as sampler
 
 
@@ -20,12 +20,12 @@ def generate_maximum_cut_bqm(graph: nx.Graph) -> dimod.BinaryQuadraticModel:
             An instance of BinaryQuadraticModel with a QUBO formulation of the maximum cut
             problem for 'graph'.
     """
-    linear: dict[int, int] = defaultdict(int)
-    quadratic: dict[tuple[int, int], int] = defaultdict(int)
+    linear = np.zeros(shape=graph.number_of_nodes())
+    quadratic = np.zeros(shape=(graph.number_of_nodes(), graph.number_of_nodes()))
     for (i, j) in graph.edges:
         linear[i] += -1
         linear[j] += -1
-        quadratic[(i, j)] = 2
+        quadratic[i, j] = 2
 
     offset = 0.0
     vartype = dimod.BINARY
