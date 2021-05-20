@@ -1,0 +1,12 @@
+# PEP8 check/linting
+flake8 | grep -v E501 | grep FILE
+
+# Perform unit tests
+python -m unittest
+
+
+# Coverity scan
+git checkout coverity_scan
+git merge master
+git push
+git checkout master
