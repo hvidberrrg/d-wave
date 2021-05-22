@@ -60,6 +60,10 @@ Given an undirected graph, <i>G=(V, E)</i>, a vertex cover is a subset of the ve
 
 For the graph above - illustrating the maximum cut problem - examples of a minimum vertex cover include <i>(1, 2, 3)</i> and <i>(0, 1, 4)</i>.
 
+A standard optimization model for the minimum vertex cover problem can be formulates as follows. Let <i>x<sub>i</sub> = 1</i> if vertex <i>i</i> is part of the subset of nodes constituting the minimum vertex cover; otherwise <i>x<sub>i</sub> = 0</i>. Then the constrained optimization model for the problem is:
+
+<i>minimize(&Sigma; x<sub>i</sub> , i &in; V)</i> (the sum is over all nodes in the graph)
+
 ## References
 (in no particular order - just added on the go)
 
