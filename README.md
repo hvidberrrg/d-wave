@@ -70,6 +70,20 @@ subject to the constraints:
 
 Note that the constraints ensure that at least one of the endpoints of each edge is part of the cover while the objective function seeks to find the cover using the minimum number of vertices.
 
+We need to reformulate the problem as unconstrained in order to solve it as a QUBO. This is done by introducing the concept of penalties. A penalty, <i>P</i>, is a positive, scalar value that must be chosen sufficiently large in order to ensure that it corresponds to the classical constraint. For the MVC problem we need a way of penalizing the situation where an edge has none of it endpoints in the cover. This is done as follows. Let
+
+<i>P = &lceil;1.5 * |V|&rceil;</i> (i.e. 1.5 times the number of nodes, rounded up)  
+
+then the penalty for an edge is calculated as follows:
+
+<i>P(1 - x<sub>i</sub> - x<sub>j</sub> + x<sub>i</sub>x<sub>j</sub>)</i>
+
+meaning that if none of the endpoints are in the minimum vertex cover (<i>x<sub>i</sub> = x<sub>j</sub> = 0</i>) then the edge is penalized with the value <i>P</i>, otherwise the penalty is <i>0</i>. We can now reformulate our optimization model in an unconstrained form:
+
+<i>minimize(&Sigma; x<sub>i</sub> , i &in; V + P&Sigma;(1 - x<sub>i</sub> - x<sub>j</sub> + x<sub>i</sub>x<sub>j</sub>), (i, j)i &in; E)</i>
+
+where P is the positive, scalar penalty.
+
 ## References
 (in no particular order - just added on the go)
 
