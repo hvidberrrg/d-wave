@@ -50,7 +50,7 @@ This is an instance of:
 
 <i>minimize(x<sup>T</sup>Qx</i>)</i>
 
-Where <i>x</i> is the (<i>n</i>-)vector deciding whether a given node belongs to <i>S</i> or <i>S<sup>c</sup></i>, and <i>Q</i> is a symmetric <i>n X n</i> matrix where <i>q<sub>ii</sub> = -(|(&bull;, i) &in; E| + |(i, &bull;) &in; E|)</i> (i.e. the total number of edges having an endpoint in node <i>i</i>, negated) and <i>q<sub>ij</sub> = q<sub>ji</sub> = 1</i>.
+Where <i>x</i> is the (<i>n</i>-)vector deciding whether a given node belongs to <i>S</i> or <i>S<sup>c</sup></i>, and <i>Q</i> is a symmetric <i>n X n</i> matrix where <i>q<sub>ii</sub> = -(|(&bull;, i) &in; E| + |(i, &bull;) &in; E|)</i> (i.e. the total number of edges having an endpoint in node <i>i</i>, negated) and <i>q<sub>ij</sub> = q<sub>ji</sub> = 1</i> for <i>(i, j) &in; E</i>.
 
 An example of the QUBO formulation of the maximum cut for a graph can be found [here](readme/math/maximum_cut.jpg).
 
@@ -83,6 +83,12 @@ meaning that if none of the endpoints are in the minimum vertex cover (<i>x<sub>
 <i>minimize(&Sigma; x<sub>i</sub> , i &in; V + P&Sigma;(1 - x<sub>i</sub> - x<sub>j</sub> + x<sub>i</sub>x<sub>j</sub>), (i, j)i &in; E)</i>
 
 where <i>P</i> is the positive, scalar penalty.
+
+This [can be seen](readme/math/minimum_vertex_cover.jpg) to be an instance of:
+
+<i>minimize(x<sup>T</sup>Qx</i>)</i>
+
+Where <i>x</i> is the (<i>n</i>-)vector deciding whether a given node belongs to the minimum vertex cover, and <i>Q</i> is a symmetric <i>n X n</i> matrix where <i>q<sub>ii</sub> = (1 - P(|(&bull;, i) &in; E| + |(i, &bull;) &in; E|))</i> (i.e. <i>1</i> minus <i>P</i> times the total number of edges having an endpoint in node <i>i</i>) and <i>q<sub>ij</sub> = q<sub>ji</sub> = P/2</i> for <i>(i, j) &in; E</i>.
 
 ## References
 (in no particular order - just added on the go)
