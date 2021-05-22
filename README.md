@@ -40,11 +40,11 @@ The problem can be modelled by introducing binary variables satisfying <i>x<sub>
 
 Thus the problem of maximizing the number of edges in the cut can be formulated as:
 
-<i>maximize(&Sigma; x<sub>i</sub> + x<sub>j</sub> - 2x<sub>i</sub>x<sub>j</sub>, (i, j)&in; E)</i> (the sum is over all edges in the graph)
+<i>maximize(&Sigma; x<sub>i</sub> + x<sub>j</sub> - 2x<sub>i</sub>x<sub>j</sub>, (i, j) &in; E)</i> (the sum is over all edges in the graph)
 
 Since the D-Wave system is a "minimizing sort of creature" we need to reformulate the expression as a minimization problem. This is done by multiplying the expression by -1; i.e. we need to solve the following to find the maximum cut:
 
-<i>minimize(&Sigma; -x<sub>i</sub> - x<sub>j</sub> + 2x<sub>i</sub>x<sub>j</sub>, (i, j)&in; E)</i>
+<i>minimize(&Sigma; -x<sub>i</sub> - x<sub>j</sub> + 2x<sub>i</sub>x<sub>j</sub>, (i, j) &in; E)</i>
 
 This is an instance of:
 
@@ -59,6 +59,16 @@ An example of the QUBO formulation of the maximum cut for a graph can be found [
 Given an undirected graph, <i>G=(V, E)</i>, a vertex cover is a subset of the vertices (nodes), <i>V</i>, such that each edge in <i>E</i> is incident to at least one vertex in the subset, i.e. each edge has at least one of its endpoints in the vertex cover. The minimum vertex cover problem seeks to find a cover with a minimum number of vertices in the subset.
 
 For the graph above - illustrating the maximum cut problem - examples of a minimum vertex cover include <i>(1, 2, 3)</i> and <i>(0, 1, 4)</i>.
+
+A standard optimization model for the minimum vertex cover problem can be formulates as follows. Let <i>x<sub>i</sub> = 1</i> if vertex <i>i</i> is part of the subset of nodes constituting the minimum vertex cover; otherwise <i>x<sub>i</sub> = 0</i>. Then the constrained optimization model for the problem is:
+
+<i>minimize(&Sigma; x<sub>i</sub> , i &in; V)</i> (the sum is over all nodes in the graph)
+
+subject to the constraints:
+
+<i>x<sub>i</sub> + x<sub>j</sub> &GreaterEqual; 1</i> for all <i>(i, j) &in; E</i>
+
+Note that the constraints ensure that at least one of the endpoints of each edge is part of the cover while the objective function seeks to find the cover using the minimum number of vertices.
 
 ## References
 (in no particular order - just added on the go)
