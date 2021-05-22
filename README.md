@@ -64,15 +64,12 @@ A standard optimization model for the minimum vertex cover problem can be formul
 
 <i>minimize(&Sigma; x<sub>i</sub> , i &in; V)</i> (the sum is over all nodes in the graph)
 
-<<<<<<< HEAD
 subject to the constraints:
 
 <i>x<sub>i</sub> + x<sub>j</sub> &GreaterEqual; 1</i> for all <i>(i, j) &in; E</i>
 
 Note that the constraints ensure that at least one of the endpoints of each edge is part of the cover while the objective function seeks to find the cover using the minimum number of vertices.
 
-=======
->>>>>>> b57769362c196f6990cce5773b1451dedf1f25b1
 ## References
 (in no particular order - just added on the go)
 
