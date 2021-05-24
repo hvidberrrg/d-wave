@@ -15,10 +15,10 @@ def maximum_cut(graph, nodes_set1, nodes_set2, cut_edges, uncut_edges, filename)
     plt.savefig(filename, bbox_inches='tight')
 
 
-def minimum_vertex_cover(graph, minimum_vertex_cover, filename):
+def graph_with_colored_node_subset(graph, node_subset, filename):
     pos = nx.spring_layout(graph)
     nx.draw_networkx_nodes(graph, pos, nodelist=graph.nodes, node_color='r')
-    nx.draw_networkx_nodes(graph, pos, nodelist=minimum_vertex_cover, node_color='c')
+    nx.draw_networkx_nodes(graph, pos, nodelist=node_subset, node_color='c')
     nx.draw_networkx_edges(graph, pos, edgelist=graph.edges, style='solid', width=3)
     nx.draw_networkx_labels(graph, pos)
 

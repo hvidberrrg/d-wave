@@ -24,12 +24,12 @@ class PlotTest(unittest.TestCase):
         self.assertIsFile(filename)
         os.remove(filename)
 
-    def test_minimum_vertex_cover(self):
+    def test_graph_with_colored_node_subset(self):
         graph = nx.Graph()
         graph.add_edges_from([(0, 1), (0, 3), (1, 3), (1, 2), (3, 4), (2, 4)])
-        minimum_vertex_cover = {1, 2, 3}
-        filename = "test_minimum_vertex_cover.png"
+        node_subset = {1, 2, 3}
+        filename = "test_graph_with_colored_node_subset.png"
 
-        plot.minimum_vertex_cover(graph, minimum_vertex_cover, filename)
+        plot.graph_with_colored_node_subset(graph, node_subset, filename)
         self.assertIsFile(filename)
         os.remove(filename)

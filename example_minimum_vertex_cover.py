@@ -12,5 +12,5 @@ print("Minimum vertex cover: ", end="")
 print(minimum_vertex_cover)
 
 filename = "plots/minimum_vertex_cover.png"
-plot.minimum_vertex_cover(graph, minimum_vertex_cover, filename)
+plot.graph_with_colored_node_subset(graph, minimum_vertex_cover, filename)
 print("\nYour plot is saved to '{}'".format(filename))
